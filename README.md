@@ -17,7 +17,7 @@ gradle dependencyCheckAnalyze
 gradle build
 ```
 
-### Run the application
+### Run the applications
 
 ```bash
 java -jar build/libs/demo-0.0.1-SNAPSHOT.jar 
