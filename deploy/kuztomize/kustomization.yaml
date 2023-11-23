@@ -1,0 +1,21 @@
+
+
+resources:
+- buildconfig.yaml
+- cleapup-task.yaml
+- deployment-nginx.yaml
+- deployment-java.yaml
+- eventlisterners.yaml
+- git-pull-java.yaml
+- image-tagging-task.yaml
+- imagestream.yaml
+- java-gradle-task.yaml
+- java-stream.yaml
+- new-pipeline.yaml
+- report.yaml
+- route-java.yaml
+- route-nginx.yaml
+- service-java.yaml
+- service-nginx.yaml
+- triggerbindings.yaml
+- triggertemplates.yaml

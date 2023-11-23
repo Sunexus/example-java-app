@@ -1,0 +1,48 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: EventListener
+metadata:
+  creationTimestamp: "2023-11-22T12:35:26Z"
+  generation: 1
+  name: java-pr
+  namespace: sunexus-dev
+  resourceVersion: "1002450272"
+  uid: 81ac4b87-29c8-41d7-9bdf-c89557f09b0a
+spec:
+  namespaceSelector: {}
+  resources: {}
+  serviceAccountName: pipeline
+  triggers:
+  - bindings:
+    - kind: TriggerBinding
+      ref: java-pr-trigger-binding
+    name: pr-trigger
+    template:
+      ref: javagit-trigger-template
+status:
+  address:
+    url: http://el-java-pr.sunexus-dev.svc.cluster.local:8080
+  conditions:
+  - lastTransitionTime: "2023-11-23T09:40:12Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2023-11-23T09:40:12Z"
+    message: Deployment exists
+    status: "True"
+    type: Deployment
+  - lastTransitionTime: "2023-11-22T12:35:28Z"
+    message: ReplicaSet "el-java-pr-b4c4b7c9" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2023-11-23T09:40:12Z"
+    message: EventListener is ready
+    status: "True"
+    type: Ready
+  - lastTransitionTime: "2023-11-23T09:40:12Z"
+    message: Service exists
+    status: "True"
+    type: Service
+  configuration:
+    generatedName: el-java-pr

@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  creationTimestamp: "2023-11-22T09:12:57Z"
+  generation: 2
+  name: git-pull-java
+  namespace: sunexus-dev
+  resourceVersion: "997477168"
+  uid: 76e480f6-659c-4e83-b2e6-931a04875439
+spec:
+  params:
+  - description: The git repository url
+    name: url
+    type: string
+  - default: main
+    description: The git revision
+    name: revision
+    type: string
+  steps:
+  - computeResources: {}
+    image: quay.io/wire/alpine-git
+    name: clone
+    script: |
+      #!/usr/bin/env bash
+      cd $(workspaces.source-code.path)
+      git clone $(params.url) example-java-app
+      cd example-java-app
+      git checkout $(params.revision)
+  workspaces:
+  - name: source-code

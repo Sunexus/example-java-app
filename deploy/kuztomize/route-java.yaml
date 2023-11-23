@@ -1,0 +1,29 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  creationTimestamp: "2023-11-22T10:58:47Z"
+  name: java-app
+  namespace: sunexus-dev
+  resourceVersion: "997771970"
+  uid: e5bef7ff-d8b9-4ef3-93e3-f5a3182a3025
+spec:
+  host: java-app-sunexus-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: java-app
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2023-11-22T10:58:47Z"
+      status: "True"
+      type: Admitted
+    host: java-app-sunexus-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com
+    routerCanonicalHostname: router-default.apps.sandbox-m4.g2pi.p1.openshiftapps.com
+    routerName: default
+    wildcardPolicy: None

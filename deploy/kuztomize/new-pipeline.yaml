@@ -1,0 +1,60 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  creationTimestamp: "2023-11-22T09:33:11Z"
+  generation: 10
+  name: new-pipeline
+  namespace: sunexus-dev
+  resourceVersion: "1002768732"
+  uid: 401e75a3-b1e8-411d-9957-b8a590bddbb5
+spec:
+  params:
+  - description: The git repository URL
+    name: repo-url
+    type: string
+  - default: main
+    description: The git revision
+    name: revision
+    type: string
+  tasks:
+  - name: git-pull-java
+    params:
+    - name: url
+      value: https://github.com/musghost/example-java-app
+    - name: revision
+      value: main
+    taskRef:
+      kind: Task
+      name: git-pull-java
+    workspaces:
+    - name: source-code
+      workspace: source-code
+  - name: java-gradle-task
+    runAfter:
+    - git-pull-java
+    taskRef:
+      kind: Task
+      name: java-gradle-task
+    workspaces:
+    - name: source-code
+      workspace: source-code
+  - name: java-stream
+    runAfter:
+    - report
+    taskRef:
+      kind: Task
+      name: java-stream
+  - name: report
+    params:
+    - name: report-file-path
+      value: $(workspaces.source-code.path)/example-java-app/build/reports
+    runAfter:
+    - java-gradle-task
+    taskRef:
+      kind: Task
+      name: report
+    workspaces:
+    - name: source-code
+      workspace: source-code
+  workspaces:
+  - name: source-code

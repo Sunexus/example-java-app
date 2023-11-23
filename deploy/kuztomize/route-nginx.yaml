@@ -1,0 +1,29 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  creationTimestamp: "2023-11-23T13:20:24Z"
+  name: nginx-deployment
+  namespace: sunexus-dev
+  resourceVersion: "1003213666"
+  uid: 95950602-6fe6-4bc6-a566-dc0997846a6e
+spec:
+  host: nginx-deployment-sunexus-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: nginx-deployment
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2023-11-23T13:20:24Z"
+      status: "True"
+      type: Admitted
+    host: nginx-deployment-sunexus-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com
+    routerCanonicalHostname: router-default.apps.sandbox-m4.g2pi.p1.openshiftapps.com
+    routerName: default
+    wildcardPolicy: None

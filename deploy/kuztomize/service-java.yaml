@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2023-11-22T10:58:21Z"
+  name: java-app
+  namespace: sunexus-dev
+  resourceVersion: "997770531"
+  uid: 76638495-092c-4883-98e9-ee11a86d23cd
+spec:
+  clusterIP: 172.30.62.26
+  clusterIPs:
+  - 172.30.62.26
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: java-app
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
