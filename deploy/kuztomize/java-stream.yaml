@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  creationTimestamp: "2023-11-22T10:42:57Z"
+  generation: 2
+  name: java-stream
+  namespace: sunexus-dev
+  resourceVersion: "997725489"
+  uid: 1bad701e-3c58-41d7-a44b-5ea6cc3a84b2
+spec:
+  steps:
+  - computeResources: {}
+    image: quay.io/openshift/origin-cli:latest
+    name: trigger-build
+    script: |
+      #!/usr/bin/env bash
+      oc start-build java-app-build -n sunexus-dev

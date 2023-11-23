@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  creationTimestamp: "2023-11-22T13:22:02Z"
+  generation: 1
+  name: image-tagging-task
+  namespace: sunexus-dev
+  resourceVersion: "998281346"
+  uid: 39875a24-76b4-4b55-b67c-b7d4cd4826a9
+spec:
+  steps:
+  - computeResources: {}
+    image: quay.io/openshift/origin-cli:latest
+    name: tag-image
+    script: |
+      #!/usr/bin/env bash
+      oc tag java-app:latest java-app:prd

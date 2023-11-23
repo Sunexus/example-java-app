@@ -1,0 +1,31 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  creationTimestamp: "2023-11-22T12:27:53Z"
+  generation: 2
+  name: javagit-trigger-template
+  namespace: sunexus-dev
+  resourceVersion: "998140033"
+  uid: 7bb9962a-4553-4d5d-9984-0fb897847cc9
+spec:
+  params:
+  - default: main
+    description: The git revision
+    name: gitrevision
+  resourcetemplates:
+  - apiVersion: tekton.dev/v1beta1
+    kind: PipelineRun
+    metadata:
+      generateName: test-pipeline-run-
+    spec:
+      params:
+      - name: repo-url
+        value: https://github.com/Sunexus/example-java-app.git
+      - name: revision
+        value: main
+      pipelineRef:
+        name: new-pipeline
+      workspaces:
+      - name: source-code
+        persistentVolumeClaim:
+          claimName: shared-workspace-java

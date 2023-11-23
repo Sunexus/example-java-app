@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  creationTimestamp: "2023-11-23T08:29:38Z"
+  generation: 2
+  name: cleanup-task
+  namespace: sunexus-dev
+  resourceVersion: "1002350043"
+  uid: 622959fb-70d4-4af2-b9f2-fe000a974e81
+spec:
+  steps:
+  - computeResources: {}
+    image: alpine:latest
+    name: cleanup
+    script: |
+      #!/usr/bin/env sh
+      ls -la $(workspaces.source-code.path)
+      rm -rf $(workspaces.source-code.path)/*
+      echo "Cleanup completed."
+  workspaces:
+  - name: source-code

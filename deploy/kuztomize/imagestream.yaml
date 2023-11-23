@@ -1,0 +1,71 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  creationTimestamp: "2023-11-22T08:42:56Z"
+  generation: 2
+  name: java-app
+  namespace: sunexus-dev
+  resourceVersion: "1003310621"
+  uid: 014c0906-68c8-4a8d-86db-e1f27430f2af
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations: null
+    from:
+      kind: ImageStreamImage
+      name: java-app@sha256:39f191daaf7d13d23335fa3b904eb20e99cd44e8dc8dd48461d1e3efcd25b905
+    generation: 2
+    importPolicy:
+      importMode: Legacy
+    name: prd
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/sunexus-dev/java-app
+  publicDockerImageRepository: default-route-openshift-image-registry.apps.sandbox-m4.g2pi.p1.openshiftapps.com/sunexus-dev/java-app
+  tags:
+  - items:
+    - created: "2023-11-23T13:48:47Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/sunexus-dev/java-app@sha256:f5d663405fc42f73c60db53854e2842ebd65e905b0ec95f0670b632ab3790298
+      generation: 2
+      image: sha256:f5d663405fc42f73c60db53854e2842ebd65e905b0ec95f0670b632ab3790298
+    - created: "2023-11-23T12:58:12Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/sunexus-dev/java-app@sha256:17400bc64d8fa16bf2babfff11e498d86a0a24fcfa23f73736d9cd22eb252d31
+      generation: 2
+      image: sha256:17400bc64d8fa16bf2babfff11e498d86a0a24fcfa23f73736d9cd22eb252d31
+    - created: "2023-11-23T09:21:32Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/sunexus-dev/java-app@sha256:b6a9be55f0846fb16ba741ccc72facec01d90b806be15f653f32e41f7c552ad2
+      generation: 2
+      image: sha256:b6a9be55f0846fb16ba741ccc72facec01d90b806be15f653f32e41f7c552ad2
+    - created: "2023-11-23T09:17:08Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/sunexus-dev/java-app@sha256:48aae90ee2f76c1273e479e179c8dbcbc972693ec3cb820e9e97f76134edd197
+      generation: 2
+      image: sha256:48aae90ee2f76c1273e479e179c8dbcbc972693ec3cb820e9e97f76134edd197
+    - created: "2023-11-23T09:12:57Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/sunexus-dev/java-app@sha256:25971ad403f00a467337045f413cee27f2a41fe67f5f1f474574beac33eb5b46
+      generation: 2
+      image: sha256:25971ad403f00a467337045f413cee27f2a41fe67f5f1f474574beac33eb5b46
+    - created: "2023-11-22T13:42:42Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/sunexus-dev/java-app@sha256:a71f8c5d8114bee0eab48126cf97790905573286d5c7da7fbb661ad5b169689b
+      generation: 2
+      image: sha256:a71f8c5d8114bee0eab48126cf97790905573286d5c7da7fbb661ad5b169689b
+    - created: "2023-11-22T13:12:03Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/sunexus-dev/java-app@sha256:39f191daaf7d13d23335fa3b904eb20e99cd44e8dc8dd48461d1e3efcd25b905
+      generation: 1
+      image: sha256:39f191daaf7d13d23335fa3b904eb20e99cd44e8dc8dd48461d1e3efcd25b905
+    - created: "2023-11-22T11:08:53Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/sunexus-dev/java-app@sha256:e5b4577755d604adff8f9c921c5a27ac3f77bc930a8c4494b11fd0ae0d137eb0
+      generation: 1
+      image: sha256:e5b4577755d604adff8f9c921c5a27ac3f77bc930a8c4494b11fd0ae0d137eb0
+    - created: "2023-11-22T10:55:26Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/sunexus-dev/java-app@sha256:5608e0273c2a19891007475aa910648f8458b8066f04719ee4704b3740ebff40
+      generation: 1
+      image: sha256:5608e0273c2a19891007475aa910648f8458b8066f04719ee4704b3740ebff40
+    tag: latest
+  - items:
+    - created: "2023-11-22T13:23:20Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/sunexus-dev/java-app@sha256:39f191daaf7d13d23335fa3b904eb20e99cd44e8dc8dd48461d1e3efcd25b905
+      generation: 2
+      image: sha256:39f191daaf7d13d23335fa3b904eb20e99cd44e8dc8dd48461d1e3efcd25b905
+    tag: prd

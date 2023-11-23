@@ -1,0 +1,33 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  creationTimestamp: "2023-11-22T08:57:39Z"
+  generation: 12
+  name: java-app-build
+  namespace: sunexus-dev
+  resourceVersion: "1003302371"
+  uid: ebcc927c-a61d-41d6-ab32-584141139e54
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: java-app:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    contextDir: /
+    git:
+      uri: https://github.com/Sunexus/example-java-app.git
+    type: Git
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+      pullSecret:
+        name: digitalocean
+    type: Docker
+  successfulBuildsHistoryLimit: 5
+status:
+  lastVersion: 10

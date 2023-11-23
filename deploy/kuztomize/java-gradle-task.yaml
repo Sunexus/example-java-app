@@ -1,0 +1,34 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  creationTimestamp: "2023-11-22T09:46:38Z"
+  generation: 9
+  name: java-gradle-task
+  namespace: sunexus-dev
+  resourceVersion: "1002375202"
+  uid: 3a7c45eb-f5a9-4755-839c-a9d518cb0845
+spec:
+  steps:
+  - computeResources: {}
+    image: gradle:latest
+    name: security-check
+    script: |
+      #!/usr/bin/env bash
+      cd $(workspaces.source-code.path)/example-java-app
+      gradle dependencyCheckAnalyze
+  - computeResources: {}
+    image: registry.digitalocean.com/openshiftcourse/gradle:8-jdk17
+    name: build-jar
+    script: |
+      #!/usr/bin/env bash
+      cd $(workspaces.source-code.path)/example-java-app
+      gradle build
+  - computeResources: {}
+    image: registry.digitalocean.com/openshiftcourse/gradle:8-jdk17
+    name: run-unit-tests
+    script: |
+      #!/usr/bin/env bash
+      cd $(workspaces.source-code.path)/example-java-app
+      gradle test
+  workspaces:
+  - name: source-code

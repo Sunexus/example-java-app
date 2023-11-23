@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2023-11-23T13:20:11Z"
+  name: nginx-deployment
+  namespace: sunexus-dev
+  resourceVersion: "1003212915"
+  uid: 597e51f4-0128-4482-b9b1-89201256dfbf
+spec:
+  clusterIP: 172.30.215.252
+  clusterIPs:
+  - 172.30.215.252
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: nginx-deployment
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
